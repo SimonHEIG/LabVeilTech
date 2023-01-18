@@ -128,4 +128,4 @@ En conclusion, `wretch` est une librairie JavaScript très utile qui permet aux 
 ---
 
 ### Sources
-Sustainable Web Design, An Excerpt : [alistapart.com](https://alistapart.com/article/sustainable-web-design-excerpt/)
+Repository Github de wretch : [github.com](https://github.com/elbywan/wretch)
