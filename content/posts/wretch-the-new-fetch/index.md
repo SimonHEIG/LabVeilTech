@@ -14,7 +14,7 @@ La fonction JavaScript `fetch` est une fonction très puissante et utile qui per
 
 La librairie `wretch` a été conçue comme une amélioration construite autour de la fonction `fetch` de base ayant pour but de simplifier la manière d’effectuer des requêtes et de gérer les réponses.
 
-# Différences entre wretch et fetch
+## Différences entre wretch et fetch
 
 Sur son repository Github, il est décrit que `wretch` a été créé pour réponde à 4 motivations : 
 
