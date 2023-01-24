@@ -1,0 +1,200 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=author content>
+<meta name=description content="Analyse de la libraire de requêtes HTTP open-source &#34;wretch&#34;. ">
+<meta name=keywords content>
+<meta name=robots content="noodp">
+<meta name=theme-color content>
+<link rel=canonical href=localhost/posts/wretch-the-new-fetch/>
+<title>
+Wretch, the new fetch ? :: Hello Friend NG — A simple theme for Hugo
+</title>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css rel=stylesheet type=text/css>
+<link rel=stylesheet href=/localhost/main.4e5c639214707eff609bb55fe49e183dee42258a73bc90e4cc7b0a84f900798a.css>
+<link rel=apple-touch-icon sizes=180x180 href=/localhost/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/localhost/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/localhost/favicon-16x16.png>
+<link rel=manifest href=/localhost/site.webmanifest>
+<link rel=mask-icon href=/localhost/safari-pinned-tab.svg color>
+<link rel="shortcut icon" href=/localhost/favicon.ico>
+<meta name=msapplication-TileColor content>
+<meta itemprop=name content="Wretch, the new fetch ?">
+<meta itemprop=description content="Analyse de la libraire de requêtes HTTP open-source &#34;wretch&#34;. "><meta itemprop=datePublished content="2023-01-18T00:00:00+00:00">
+<meta itemprop=dateModified content="2023-01-18T00:00:00+00:00">
+<meta itemprop=wordCount content="590"><meta itemprop=image content="localhost">
+<meta itemprop=keywords content>
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="localhost">
+<meta name=twitter:title content="Wretch, the new fetch ?">
+<meta name=twitter:description content="Analyse de la libraire de requêtes HTTP open-source &#34;wretch&#34;. ">
+<meta property="og:title" content="Wretch, the new fetch ?">
+<meta property="og:description" content="Analyse de la libraire de requêtes HTTP open-source &#34;wretch&#34;. ">
+<meta property="og:type" content="article">
+<meta property="og:url" content="localhost/posts/wretch-the-new-fetch/"><meta property="og:image" content="localhost"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-01-18T00:00:00+00:00">
+<meta property="article:modified_time" content="2023-01-18T00:00:00+00:00"><meta property="og:site_name" content="Hello Friend NG">
+<meta property="article:section" content="Front-end">
+<meta property="article:published_time" content="2023-01-18 00:00:00 +0000 UTC">
+</head>
+<body>
+<div class=container>
+<header class=header>
+<span class=header__inner>
+<a href=/ style=text-decoration:none>
+<div class=logo>
+<span class=logo__mark>></span>
+<span class=logo__text>hello friend ng</span>
+<span class=logo__cursor>
+</span>
+</div>
+</a>
+<span class=header__right>
+<nav class=menu>
+<ul class=menu__inner><li><a href=/localhost/about>About-me</a></li><li><a href=/localhost/posts>Blog</a></li>
+</ul>
+</nav>
+<span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</span>
+</span>
+</span>
+</header>
+<div class=content>
+<main class=post>
+<div class=post-info>
+</p>
+</div>
+<article>
+<h2 class=post-title><a href=localhost/posts/wretch-the-new-fetch/>Wretch, the new fetch ?</a></h2>
+<div class=post-content>
+<h2 id=introduction>Introduction</h2>
+<p>La fonction JavaScript <code>fetch</code> est une fonction très puissante et utile qui permet aux développeurs d&rsquo;effectuer des requêtes HTTP en toute simplicité. Il est devenu l&rsquo;un des éléments les plus populaires de l&rsquo;API JavaScript, et est largement utilisé pour les applications web. Seulement, <code>fetch</code> comprend aussi quelques points négatifs.</p>
+<p>La librairie <code>wretch</code> a été conçue comme une amélioration construite autour de la fonction <code>fetch</code> de base ayant pour but de simplifier la manière d’effectuer des requêtes et de gérer les réponses.</p>
+<h2 id=différences-entre-wretch-et-fetch>Différences entre wretch et fetch</h2>
+<p>Sur son repository Github, il est décrit que <code>wretch</code> a été créé pour réponde à 4 motivations :</p>
+<h3 id=1---les-deux-callbacks>1 - Les deux callbacks</h3>
+<p>La première amélioration que propose <code>wretch</code> est de simplifier la requête de base en s’affranchissant du second callback.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#75715e>// 🚩 Avec fetch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;examples/example.json&#34;</span>)
+  .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>())
+  .<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>json</span> =&gt; {
+    <span style=color:#75715e>//Do stuff with the parsed json
+</span><span style=color:#75715e></span>  });
+
+<span style=color:#75715e>// ✅ Avec wretch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>wretch</span>(<span style=color:#e6db74>&#34;examples/example.json&#34;</span>)
+  .<span style=color:#a6e22e>get</span>()
+  .<span style=color:#a6e22e>json</span>(<span style=color:#a6e22e>json</span> =&gt; {
+    <span style=color:#75715e>// Do stuff with the parsed json
+</span><span style=color:#75715e></span>  });
+</code></pre></div><h3 id=2---la-gestion-des-erreurs>2 - La gestion des erreurs</h3>
+<p>Dans une utilisation classique avec un <code>try / catch</code> la fonction <code>fetch</code> renvoie uniquement un code d’erreur 200 chaque erreur. Palier ce problème devient rapidement très lourd, <code>wretch</code> propose donc une solution beaucoup plus légère.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#75715e>// 🚩 Avec fetch 
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;anything&#34;</span>)
+	.<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>response</span> =&gt; {
+	  <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span><span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+	    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>404</span>) <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Not found&#34;</span>)
+	    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>401</span>) <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Unauthorized&#34;</span>)
+	    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>status</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>418</span>) <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;I&#39;m a teapot !&#34;</span>)
+	    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> Error(<span style=color:#e6db74>&#34;Other error&#34;</span>)
+	  }<span style=color:#66d9ef>else</span> {
+			<span style=color:#75715e>// ...
+</span><span style=color:#75715e></span>		}
+	})
+	.<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>data</span> =&gt; <span style=color:#75715e>/* ... */</span>)
+	.<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>error</span> =&gt; { <span style=color:#75715e>/* ... */</span> })
+
+<span style=color:#75715e>// ✅ Avec wretch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>wretch</span>(<span style=color:#e6db74>&#34;anything&#34;</span>)
+  .<span style=color:#a6e22e>get</span>()
+  .<span style=color:#a6e22e>notFound</span>(<span style=color:#a6e22e>error</span> =&gt; { <span style=color:#75715e>/* ... */</span> })
+  .<span style=color:#a6e22e>unauthorized</span>(<span style=color:#a6e22e>error</span> =&gt; { <span style=color:#75715e>/* ... */</span> })
+  .<span style=color:#a6e22e>error</span>(<span style=color:#ae81ff>418</span>, <span style=color:#a6e22e>error</span> =&gt; { <span style=color:#75715e>/* ... */</span> })
+  .<span style=color:#a6e22e>res</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#75715e>/* ... */</span>)
+  .<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>error</span> =&gt; { <span style=color:#75715e>/* uncaught errors */</span> })
+</code></pre></div><h3 id=3---lenvoie-aisé-dun-json>3 - L’envoie aisé d’un json</h3>
+<p>Lors d’un requête <code>POST</code> classique, envoyer un objet nécessite une sérialisation. Ce n’est plus le cas avec <code>wretch</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#75715e>// 🚩 Avec fetch 
+</span><span style=color:#75715e></span><span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#34;endpoint&#34;</span>, {
+  <span style=color:#a6e22e>method</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;POST&#34;</span>,
+  <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> { <span style=color:#e6db74>&#34;Content-Type&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;application/json&#34;</span> },
+  <span style=color:#a6e22e>body</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>({ <span style=color:#e6db74>&#34;hello&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;world&#34;</span> })
+}).<span style=color:#a6e22e>then</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#75715e>/* ... */</span>)
+<span style=color:#75715e>// Omitting the data retrieval and error management parts…
+</span><span style=color:#75715e></span>
+<span style=color:#75715e>// ✅ Avec wretch
+</span><span style=color:#75715e></span><span style=color:#a6e22e>wretch</span>(<span style=color:#e6db74>&#34;endpoint&#34;</span>)
+	.<span style=color:#a6e22e>post</span>({ <span style=color:#e6db74>&#34;hello&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;world&#34;</span> })
+  .<span style=color:#a6e22e>res</span>(<span style=color:#a6e22e>response</span> =&gt; <span style=color:#75715e>/* ... */</span>)
+</code></pre></div><h3 id=4---une-configuration-unique>4 - Une configuration unique</h3>
+<p>Fetcher des données est souvent nécessaire à plusieurs endroit du code. En utilisant une API ayant besoin d’authentification ou autre configuration, dans une utilisation de base, il faudrait réécrire cette configuration a chaque requête. Avec <code>wretch</code> ce problème est résolu.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-jsx data-lang=jsx><span style=color:#75715e>// Cross origin authenticated requests on an external API
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>externalApi</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>wretch</span>(<span style=color:#e6db74>&#34;http://external.api&#34;</span>) <span style=color:#75715e>// Base url
+</span><span style=color:#75715e></span>  <span style=color:#75715e>// Authorization header
+</span><span style=color:#75715e></span>  .<span style=color:#a6e22e>auth</span>(<span style=color:#e6db74>`Bearer </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>token</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+  <span style=color:#75715e>// Cors fetch options
+</span><span style=color:#75715e></span>  .<span style=color:#a6e22e>options</span>({ <span style=color:#a6e22e>credentials</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;include&#34;</span>, <span style=color:#a6e22e>mode</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;cors&#34;</span> })
+  <span style=color:#75715e>// Handle 403 errors
+</span><span style=color:#75715e></span>  .<span style=color:#a6e22e>resolve</span>((<span style=color:#a6e22e>_</span>) =&gt; <span style=color:#a6e22e>_</span>.<span style=color:#a6e22e>forbidden</span>(<span style=color:#a6e22e>handle403</span>));
+
+<span style=color:#75715e>// Fetch a resource
+</span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resource</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>externalApi</span>
+  <span style=color:#75715e>// Add a custom header for this request
+</span><span style=color:#75715e></span>  .<span style=color:#a6e22e>headers</span>({ <span style=color:#e6db74>&#34;If-Unmodified-Since&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Wed, 21 Oct 2015 07:28:00 GMT&#34;</span> })
+  .<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#34;/resource/1&#34;</span>)
+  .<span style=color:#a6e22e>json</span>(<span style=color:#a6e22e>handleResource</span>);
+
+<span style=color:#75715e>// Post a resource
+</span><span style=color:#75715e></span><span style=color:#a6e22e>externalApi</span>
+  .<span style=color:#a6e22e>url</span>(<span style=color:#e6db74>&#34;/resource&#34;</span>)
+  .<span style=color:#a6e22e>post</span>({ <span style=color:#e6db74>&#34;Shiny new&#34;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;resource object&#34;</span> })
+  .<span style=color:#a6e22e>json</span>(<span style=color:#a6e22e>handleNewResourceResult</span>);
+</code></pre></div><h2 id=avantages-inconvénients-et-conclusion>Avantages, inconvénients et conclusion</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Avantages</strong></th>
+<th><strong>Inconvénients</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✔️ Léger (2KB)</td>
+<td>❌ Un package supplémentaire</td>
+</tr>
+<tr>
+<td>✔️ Intuitif</td>
+<td>❌ Pas (encore ?) un standard</td>
+</tr>
+<tr>
+<td>✔️ Open-source & maintenu</td>
+<td></td>
+</tr>
+<tr>
+<td>✔️ Fortement typé</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En conclusion, <code>wretch</code> est une librairie JavaScript très utile qui permet aux développeurs d&rsquo;effectuer des requêtes HTTP en toute simplicité et plus rapidement qu&rsquo;avec la fonction <code>fetch</code> de base. Son installation ne représentant pas un poids conséquent elle est donc parfaite pour compléter la fonction originale de <code>fetch</code> et peut être intéressant à intégré dans des futurs projets javascript.</p>
+<hr>
+<h3 id=sources>Sources</h3>
+<p>Repository Github de wretch : <a href=https://github.com/elbywan/wretch>github.com</a></p>
+</div>
+</article>
+<hr>
+<div class=post-info>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+<span class=tag><a href=localhost/categories/front-end/>Front-end</a></span>
+</p>
+</div>
+</main>
+</div>
+<footer class=footer>
+</footer>
+</div>
+<script type=text/javascript src=/localhost/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+</body>
+</html>

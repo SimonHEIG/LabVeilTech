@@ -1,0 +1,169 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Hello Friend NG</title><link>localhost/posts/</link><description>Recent content in Posts on Hello Friend NG</description><generator>Hugo -- gohugo.io</generator><language>fr-CH</language><copyright>&lt;a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0&lt;/a></copyright><lastBuildDate>Wed, 18 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="localhost/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Wretch, the new fetch ?</title><link>localhost/posts/wretch-the-new-fetch/</link><pubDate>Wed, 18 Jan 2023 00:00:00 +0000</pubDate><guid>localhost/posts/wretch-the-new-fetch/</guid><description>Introduction La fonction JavaScript fetch est une fonction très puissante et utile qui permet aux développeurs d&amp;rsquo;effectuer des requêtes HTTP en toute simplicité. Il est devenu l&amp;rsquo;un des éléments les plus populaires de l&amp;rsquo;API JavaScript, et est largement utilisé pour les applications web. Seulement, fetch comprend aussi quelques points négatifs.
+La librairie wretch a été conçue comme une amélioration construite autour de la fonction fetch de base ayant pour but de simplifier la manière d’effectuer des requêtes et de gérer les réponses.</description><content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>La fonction JavaScript <code>fetch</code> est une fonction très puissante et utile qui permet aux développeurs d&rsquo;effectuer des requêtes HTTP en toute simplicité. Il est devenu l&rsquo;un des éléments les plus populaires de l&rsquo;API JavaScript, et est largement utilisé pour les applications web. Seulement, <code>fetch</code> comprend aussi quelques points négatifs.</p>
+<p>La librairie <code>wretch</code> a été conçue comme une amélioration construite autour de la fonction <code>fetch</code> de base ayant pour but de simplifier la manière d’effectuer des requêtes et de gérer les réponses.</p>
+<h2 id="différences-entre-wretch-et-fetch">Différences entre wretch et fetch</h2>
+<p>Sur son repository Github, il est décrit que <code>wretch</code> a été créé pour réponde à 4 motivations :</p>
+<h3 id="1---les-deux-callbacks">1 - Les deux callbacks</h3>
+<p>La première amélioration que propose <code>wretch</code> est de simplifier la requête de base en s’affranchissant du second callback.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// 🚩 Avec fetch
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;examples/example.json&#34;</span>)
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>())
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">json</span> =&gt; {
+    <span style="color:#75715e">//Do stuff with the parsed json
+</span><span style="color:#75715e"></span>  });
+
+<span style="color:#75715e">// ✅ Avec wretch
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">wretch</span>(<span style="color:#e6db74">&#34;examples/example.json&#34;</span>)
+  .<span style="color:#a6e22e">get</span>()
+  .<span style="color:#a6e22e">json</span>(<span style="color:#a6e22e">json</span> =&gt; {
+    <span style="color:#75715e">// Do stuff with the parsed json
+</span><span style="color:#75715e"></span>  });
+</code></pre></div><h3 id="2---la-gestion-des-erreurs">2 - La gestion des erreurs</h3>
+<p>Dans une utilisation classique avec un <code>try / catch</code> la fonction <code>fetch</code> renvoie uniquement un code d’erreur 200 chaque erreur. Palier ce problème devient rapidement très lourd, <code>wretch</code> propose donc une solution beaucoup plus légère.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// 🚩 Avec fetch 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;anything&#34;</span>)
+	.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+	  <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+	    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">404</span>) <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Not found&#34;</span>)
+	    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">401</span>) <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Unauthorized&#34;</span>)
+	    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">418</span>) <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;I&#39;m a teapot !&#34;</span>)
+	    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Other error&#34;</span>)
+	  }<span style="color:#66d9ef">else</span> {
+			<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>		}
+	})
+	.<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data</span> =&gt; <span style="color:#75715e">/* ... */</span>)
+	.<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; { <span style="color:#75715e">/* ... */</span> })
+
+<span style="color:#75715e">// ✅ Avec wretch
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">wretch</span>(<span style="color:#e6db74">&#34;anything&#34;</span>)
+  .<span style="color:#a6e22e">get</span>()
+  .<span style="color:#a6e22e">notFound</span>(<span style="color:#a6e22e">error</span> =&gt; { <span style="color:#75715e">/* ... */</span> })
+  .<span style="color:#a6e22e">unauthorized</span>(<span style="color:#a6e22e">error</span> =&gt; { <span style="color:#75715e">/* ... */</span> })
+  .<span style="color:#a6e22e">error</span>(<span style="color:#ae81ff">418</span>, <span style="color:#a6e22e">error</span> =&gt; { <span style="color:#75715e">/* ... */</span> })
+  .<span style="color:#a6e22e">res</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#75715e">/* ... */</span>)
+  .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; { <span style="color:#75715e">/* uncaught errors */</span> })
+</code></pre></div><h3 id="3---lenvoie-aisé-dun-json">3 - L’envoie aisé d’un json</h3>
+<p>Lors d’un requête <code>POST</code>  classique, envoyer un objet nécessite une sérialisation. Ce n’est plus le cas avec <code>wretch</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// 🚩 Avec fetch 
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;endpoint&#34;</span>, {
+  <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;POST&#34;</span>,
+  <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/json&#34;</span> },
+  <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({ <span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;world&#34;</span> })
+}).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#75715e">/* ... */</span>)
+<span style="color:#75715e">// Omitting the data retrieval and error management parts…
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// ✅ Avec wretch
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">wretch</span>(<span style="color:#e6db74">&#34;endpoint&#34;</span>)
+	.<span style="color:#a6e22e">post</span>({ <span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;world&#34;</span> })
+  .<span style="color:#a6e22e">res</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#75715e">/* ... */</span>)
+</code></pre></div><h3 id="4---une-configuration-unique">4 - Une configuration unique</h3>
+<p>Fetcher des données est souvent nécessaire à plusieurs endroit du code. En utilisant une API ayant besoin d’authentification ou autre configuration, dans une utilisation de base, il faudrait réécrire cette configuration a chaque requête. Avec <code>wretch</code> ce problème est résolu.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#75715e">// Cross origin authenticated requests on an external API
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">externalApi</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">wretch</span>(<span style="color:#e6db74">&#34;http://external.api&#34;</span>) <span style="color:#75715e">// Base url
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Authorization header
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">auth</span>(<span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+  <span style="color:#75715e">// Cors fetch options
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">options</span>({ <span style="color:#a6e22e">credentials</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;include&#34;</span>, <span style="color:#a6e22e">mode</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cors&#34;</span> })
+  <span style="color:#75715e">// Handle 403 errors
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">resolve</span>((<span style="color:#a6e22e">_</span>) =&gt; <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">forbidden</span>(<span style="color:#a6e22e">handle403</span>));
+
+<span style="color:#75715e">// Fetch a resource
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resource</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">externalApi</span>
+  <span style="color:#75715e">// Add a custom header for this request
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">headers</span>({ <span style="color:#e6db74">&#34;If-Unmodified-Since&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Wed, 21 Oct 2015 07:28:00 GMT&#34;</span> })
+  .<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/resource/1&#34;</span>)
+  .<span style="color:#a6e22e">json</span>(<span style="color:#a6e22e">handleResource</span>);
+
+<span style="color:#75715e">// Post a resource
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">externalApi</span>
+  .<span style="color:#a6e22e">url</span>(<span style="color:#e6db74">&#34;/resource&#34;</span>)
+  .<span style="color:#a6e22e">post</span>({ <span style="color:#e6db74">&#34;Shiny new&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;resource object&#34;</span> })
+  .<span style="color:#a6e22e">json</span>(<span style="color:#a6e22e">handleNewResourceResult</span>);
+</code></pre></div><h2 id="avantages-inconvénients-et-conclusion">Avantages, inconvénients et conclusion</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Avantages</strong></th>
+<th><strong>Inconvénients</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✔️ Léger (2KB)</td>
+<td>❌ Un package supplémentaire</td>
+</tr>
+<tr>
+<td>✔️ Intuitif</td>
+<td>❌ Pas (encore ?) un standard</td>
+</tr>
+<tr>
+<td>✔️ Open-source &amp; maintenu</td>
+<td></td>
+</tr>
+<tr>
+<td>✔️ Fortement typé</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>En conclusion, <code>wretch</code> est une librairie JavaScript très utile qui permet aux développeurs d&rsquo;effectuer des requêtes HTTP en toute simplicité et plus rapidement qu&rsquo;avec la fonction <code>fetch</code> de base. Son installation ne représentant pas un poids conséquent elle est donc parfaite pour compléter la fonction originale de <code>fetch</code> et peut être intéressant à intégré dans des futurs projets javascript.</p>
+<hr>
+<h3 id="sources">Sources</h3>
+<p>Repository Github de wretch : <a href="https://github.com/elbywan/wretch">github.com</a></p>
+]]></content></item><item><title>Sustainable Web Design</title><link>localhost/posts/sustainable-web-design/</link><pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate><guid>localhost/posts/sustainable-web-design/</guid><description>Introduction Compte tenu des immense enjeux climatiques dans lesquels nous évoluons depuis plusieurs années, la plupart des industries ont aujourd’hui des standards énergétiques et environnementaux à respecter. Seulement, ça n’est pas encore le cas du web. Il est cependant important que le secteur commence à s’intéresser sérieusement à cette problématique afin de contribuer à l’effort global (ou presque) pour luter contre le dérèglement climatique.
+Le but est de réduire les émissions de CO2 produites par la consommation de page web, et cela implique de considérer les sources qui contribuent à cette production.</description><content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Compte tenu des immense enjeux climatiques dans lesquels nous évoluons depuis plusieurs années, la plupart des industries ont aujourd’hui des standards énergétiques et environnementaux à respecter. Seulement, ça n’est pas encore le cas du web. Il est cependant important que le secteur commence à s’intéresser sérieusement à cette problématique afin de contribuer à l’effort global (ou presque) pour luter contre le dérèglement climatique.</p>
+<p>Le but est de réduire les émissions de CO2 produites par la consommation de page web, et cela implique de considérer les sources qui contribuent à cette production. Seulement, ce n’est pas chose facile à mesurer car les sources de CO2 sont bien loin de nous, développeurs. Nous devons donc comprendre ce qui influe sur la quantité d&rsquo;énergie consommée pour pouvoir ensuite la réduire.</p>
+<p>Pour ce faire, il est possible de prendre en compte deux variables :</p>
+<ul>
+<li>Le transfert de données</li>
+<li>L’intensité en carbone de l’électricité</li>
+</ul>
+<blockquote>
+<p>💡 Le site <a href="http://websitecarbon.com/">websitecarbon.com</a> permet d’évaluer les émission carbone d’un site web ainsi que d’obtenir d’autres information à ce sujet.</p>
+</blockquote>
+<h2 id="transfert-de-données">Transfert de données</h2>
+<p>Le premier facteur a prendre en compte est le volume de données qui doit faire le trajet entre le serveur et le client. La quantité d’énergie nécessaire au transfert de données est mesurée en kWh/GB. Plus cette valeur est grande, plus les émissions de carbone nécessaire à produite l’énergie le seront aussi.</p>
+<p>Pour les pages web, il est assez aisé de calculer grâce à l’outil développeur du navigateur, la quantité de données transférées au premier chargement de la page. Cette quantité de données correspond approximativement au poids de la page web. Environ la moitié de ce transfert de données sont des fichiers d&rsquo;image, ce qui en fait la principale source d&rsquo;émissions de carbone sur un site web moyen.</p>
+<p>En tant que développeur, un moyen de se restreindre est d’adopter le concept du budget de performances. Le principe est simple, il s’agit de fixer un objectif de temps limite au chargement d’une page web. Ainsi, en designant pour des meilleures performances, on fait beaucoup plus attention au volume de données comprises dans nos pages et elles deviennent donc plus sustainable.</p>
+<h2 id="lintensité-en-carbone-de-lélectricité">L’intensité en carbone de l’électricité</h2>
+<p>Là où la pollution du transfert de données était calculée en kWh/GB, il sera ici question de gCO2/kWh. Autrement dit, cette unité représente si une source de production de l’électricité dégage beaucoup, ou non de CO2 par kWh produits. Il est donc préférable d’héberger nos sites web dans des pays ou le taux de CO2 par kWh est faible. Le site <a href="https://app.electricitymaps.com/map">electricitymaps.com</a> permet de se rendre compte de l’impacte en CO2 des différentes régions du monde ainsi de leur part de renouvelable.</p>
+<p>Il est aussi nécessaire de prendre en compte la distance entre les serveurs et les utilisateurs. Plus la distance est grande, plus une quantité d’énergie importante sera nécessaire pour faire transiter les données. Ainsi, pour un site web majoritairement visité par des européens, un hébergement a faible intensité en carbone comme le Canada ne serait pas forcément un meilleur choix qu’un pays européen ayant une intensité un peu supérieure.</p>
+<h2 id="comment-développer-plus-vert-">Comment développer plus vert ?</h2>
+<p>La prise en compte de ces facteurs peut s’avérer être un défi, mais il est important de ne pas oublier que chaque petit geste peut contribuer à réduire l’impact sur l’environnement. En développant des pages web qui limitent le transfert de données, qui sont optimisées pour un chargement rapide et qui sont hébergées près des utilisateurs, les développeurs web peuvent contribuer à leur manière à réduire la consommation d&rsquo;énergie et à avoir un impact positif sur l’environnement.</p>
+<hr>
+<h3 id="sources">Sources</h3>
+<p>Sustainable Web Design, An Excerpt : <a href="https://alistapart.com/article/sustainable-web-design-excerpt/">alistapart.com</a></p>
+]]></content></item><item><title>The State of JS | Front-end framework</title><link>localhost/posts/state-of-js-frontend-framework/</link><pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate><guid>localhost/posts/state-of-js-frontend-framework/</guid><description>Introduction Comme chaque année, stateofjs.com a publié les résultats de son sondage portant sur l’utilisation du Javascript. Parmi les graphiques présentés, nous allons nous intéressé dans cet article plus particulièrement aux frameworks front-end en analysant aussi bien que possible l’onglet ranking du tableau ratio over time.
+💡 Avant tout, il est important de définir les termes qui seront utiliser dans la suite de l’article :
+Satisfaction : utiliserait à nouveau / (utiliserait à nouveau + n&amp;rsquo;utiliserait pas à nouveau) Intérêt : veut apprendre / (veut apprendre + pas intéressé) Utilisation : (utiliserait à nouveau + n&amp;rsquo;utiliserait pas à nouveau) / total Awareness : (total - jamais entendu) / total Les tendances actuelles Dans un premier temps, on peut remarquer que le graphique de la satisfaction et de l’intérêt sont très similaires.</description><content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>Comme chaque année, <a href="https://2022.stateofjs.com/en-US/">stateofjs.com</a> a publié les résultats de son sondage portant sur l’utilisation du Javascript. Parmi les graphiques présentés, nous allons nous intéressé dans cet article plus particulièrement aux <a href="https://2022.stateofjs.com/en-US/libraries/front-end-frameworks/#front_end_frameworks_experience_ranking">frameworks front-end</a> en analysant aussi bien que possible l’onglet <strong>ranking</strong> du tableau <strong>ratio over time</strong>.</p>
+<blockquote>
+<p>💡 Avant tout, il est important de définir les termes qui seront utiliser dans la suite de l’article :</p>
+<ul>
+<li><strong>Satisfaction</strong> : utiliserait à nouveau / (utiliserait à nouveau + n&rsquo;utiliserait pas à nouveau)</li>
+<li><strong>Intérêt</strong> : veut apprendre / (veut apprendre + pas intéressé)</li>
+<li><strong>Utilisation</strong> : (utiliserait  à nouveau + n&rsquo;utiliserait pas à nouveau) / total</li>
+<li><strong>Awareness</strong> : (total - jamais entendu) / total</li>
+</ul>
+</blockquote>
+<h2 id="les-tendances-actuelles">Les tendances actuelles</h2>
+<p>Dans un premier temps, on peut remarquer que le graphique de la satisfaction et de l’intérêt sont très similaires. Les piliers comme React et Vue sont en train de perdre des places doucement année après année dans l&rsquo;estime des développeurs. Phénomène encore accéléré pour Angular qui est en chute libre depuis plusieurs années.</p>
+<p><img src="./SoJS_Retention.png" alt="Front-end framework : Satisfaction"></p>
+<p>Front-end framework : Satisfaction</p>
+<p><img src="./SoJS_Interest.png" alt="Front-end framework : Intérêt"></p>
+<p>Front-end framework : Intérêt</p>
+<h2 id="la-loi-des-plus-forts">La loi des plus forts</h2>
+<p>Dans l&rsquo;autre opposé des deux graphiques, on peut voir que des frameworks plus récents comme Svelte, Qwik ou Solid sont très appréciés par la communauté front-end.</p>
+<p>Paradoxalement à ces deux résultats, les graphiques d&rsquo;utilisation et d’awareness montrent que malgré un intérêt et une satisfaction diminués au fil des années, les trois géants React, Angular et Vue sont indétrônables depuis des années. On peut notamment mentionner React qui a 80 % d&rsquo;utilisation comparé à ses deux concurrents directs qui stagnent aux alentours de 50 %.</p>
+<p><img src="./SoJS_Usage.png" alt="Front-end framework usage"></p>
+<p>Front-end framework usage</p>
+<p><img src="./SoJS_Awareness.png" alt="Front-end framework awareness"></p>
+<p>Front-end framework awareness</p>
+<h2 id="svelte-le-prochain-leader-">Svelte, le prochain leader ?</h2>
+<p>Même si le haut de tableau de l’utilisation est occupé par des librairies bien établies depuis des années qui souffrent peu, pour l&rsquo;instant, des avis de plus en plus négatifs des développeurs, il y a peut-être un de leurs concurrents qui pourrait faire bouger les choses en 2023.</p>
+<p>A la première place du graphique de l’intérêt depuis 4 ans, et oscillant entre la première et la deuxième place de du graphique de la satisfaction depuis également 4 ans, Svelte de sûr un des frameworks les plus appréciés de ces dernières années. De plus, contrairement à Solid ou Qwik, il n’a pas seulement gagné en intérêt et satisfaction mais aussi en nombre d’utilisateurs. Passant de 8% à 21% d’utilisation en 4 ans il est actuellement le 4ème framework le plus utilisé par les développeurs front-end.</p>
+<p>Bien que l&rsquo;avenir reste incertain, Svelte semble être le prochain leader à surveiller de près dans les années à venir et pourrait être une technologie dans laquelle il serait judicieux d&rsquo;investir du temps pour s&rsquo;y familiariser.</p>
+]]></content></item></channel></rss>
