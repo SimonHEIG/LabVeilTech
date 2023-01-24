@@ -1,4 +1,4 @@
-baseurl      = "simonmeia.github.io/LabVeilTech"
+baseurl      = "http://simonmeia.github.io/LabVeilTech/"
 title        = "LabVeilTec"
 languageCode = "fr-CH"
 theme        = "hello-friend-ng"
