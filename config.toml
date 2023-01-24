@@ -1,4 +1,4 @@
-baseurl      = "http://simonmeia.github.io/LabVeilTech"
+baseurl      = "http://simonmeia.github.io/"
 title        = "LabVeilTec"
 languageCode = "fr-CH"
 theme        = "hello-friend-ng"
@@ -39,7 +39,7 @@ paginate     = 10
 
     [languages.en.params.logo]
       logoText = "hello friend ng"
-      logoHomeLink = "/"
+      logoHomeLink = "/LabVeilTech"
     # or
     #
     # path = "/img/your-example-logo.svg"
