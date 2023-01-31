@@ -38,6 +38,6 @@ Après avoir utilisé **Astro** du début à la fin d’un projet, je dirais qu�
 ---
 
 ### Sources
-Site d'Astro : [astro.build](https://astro.build/)
-Documentation d'Astro : [docs.astro.build](https://docs.astro.build/en/concepts/why-astro/)
-Portfolio réalisé avec Astro : [meia.dev](https://meia.dev/)
+- Site d'Astro : [astro.build](https://astro.build/)
+- Documentation d'Astro : [docs.astro.build](https://docs.astro.build/en/concepts/why-astro/)
+- Portfolio réalisé avec Astro : [meia.dev](https://meia.dev/)

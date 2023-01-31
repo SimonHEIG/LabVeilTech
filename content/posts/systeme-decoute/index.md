@@ -10,7 +10,7 @@ type = "post"
 
 Avec l'évolution rapide des technologies, il est important de suivre l'actualité technologique pour rester à jour. Pour cela, le meilleur moyen est d’utiliser un système mis en place pour faire de la veille technologique. Ce système est composé de différentes sources, d’émetteurs et des outils qui permettent de classer et d’organiser les informations. Cet article à pour but d’expliquer le système mis en place durant le cours **Laboratoire de veille technologique** pour effectuer ma veille technologique.
 
->💡 L’explication du choix du domaine de la veille est disponible ici !
+>💡 L’explication du choix du domaine de la veille est disponible [ici](https://simonmeia.github.io/LabVeilTech/about/) !
 
 ## Système d’écoute
 
