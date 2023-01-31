@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="ie=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=author content>
+<meta name=author content="Simon Meia ">
 <meta name=description content="Test du framework javascript Astro pour la création de mon portfolio">
 <meta name=keywords content>
 <meta name=robots content="noodp">
@@ -24,7 +24,7 @@ Test du framework Astro :: La veille de Simon — A simple theme for Hugo
 <meta itemprop=name content="Test du framework Astro">
 <meta itemprop=description content="Test du framework javascript Astro pour la création de mon portfolio"><meta itemprop=datePublished content="2023-01-30T00:00:00+00:00">
 <meta itemprop=dateModified content="2023-01-30T00:00:00+00:00">
-<meta itemprop=wordCount content="563"><meta itemprop=image content="http://simonmeia.github.io/LabVeilTech">
+<meta itemprop=wordCount content="608"><meta itemprop=image content="http://simonmeia.github.io/LabVeilTech">
 <meta itemprop=keywords content>
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="http://simonmeia.github.io/LabVeilTech">
@@ -72,24 +72,25 @@ Test du framework Astro :: La veille de Simon — A simple theme for Hugo
 <h2 class=post-title><a href=http://simonmeia.github.io/LabVeilTech/posts/test-du-framework-astro/>Test du framework Astro</a></h2>
 <div class=post-content>
 <h2 id=sujet-et-objectifs-de-lexpérience>Sujet et objectifs de l&rsquo;expérience</h2>
-<p>En décembre dernier est sorti à été publié le site web de l’application <em><a href=https://www.streali.com/>Streali</a></em>. Trouvant le design particulièrement réussi et par curiosité je me suis rendu sur le repository Github du projet et j’ai remarqué que le site avait été développé avec un framework dont je n’avais encore jamais entendu parlé : <strong><a href=https://astro.build/>Astro</a></strong>.</p>
-<p>Ayant déjà des connaissances en front-end avec Vue.js ainsi qu’en back-end avec Express.js et Laravel, Astro paraissait comme une nouvelle manière de développer une page web. C’est la première fois que j’entendais parler d’<code>island architecture</code> ou de <code>server side rendering</code>. J’ai donc décidé de tester ce framework pour la création de mon portfolio dans le cadre d’un cours nommé <em>Profil professionnel</em>. Cela m’a aussi permis de pouvoir raconter mon expérience lors de la prise en main de ce framework pour le cours de <em>Laboratoire de veille technologique</em>.</p>
-<p>Mon objectif était simple : Prendre en main un nouveau framework adoptant une approche différentes de la création de page web de celles que je connaissais déjà.</p>
+<p>En décembre dernier est sorti à été publié le site web de l’application <a href=https://www.streali.com/>Streali</a>. Trouvant le design particulièrement réussi et par curiosité je me suis rendu sur le repository Github du projet et j’ai remarqué que le site avait été développé avec un framework dont je n’avais encore jamais entendu parlé : <strong><a href=https://astro.build/>Astro</a></strong>.</p>
+<p>Ayant déjà des connaissances en front-end avec <em>Vue.js</em> ainsi qu’en back-end avec <em>Express.js</em> et <em>Laravel</em>, Astro paraissait comme <strong>une nouvelle manière de développer une page web</strong>. C’est la première fois que j’entendais parler d’<em>island architecture</em> ou de <em>server side rendering</em>. J’ai donc décidé de tester ce framework pour la création de mon portfolio dans le cadre d’un cours nommé &ldquo;Profil professionnel&rdquo;. Cela m’a aussi permis de pouvoir raconter mon expérience lors de la prise en main de ce framework pour le cours de &ldquo;Laboratoire de veille technologique&rdquo;.</p>
+<p>Mon objectif était simple : Prendre en main un nouveau framework adoptant une approche différente de la création de page web de celles que je connaissais déjà.</p>
 <h2 id=résultat-attendu-vs-résultat-obtenu>Résultat attendu vs Résultat obtenu</h2>
-<p>En utilisant <strong>Astro</strong> pour la création de mon portfolio, mon but était d’obtenir un site web fonctionnel rapidement en ayant besoin de peu de connaissances car cet une des promesses d’Astro. Le résultat obtenu correspond parfaitement à mes attentes même s’il m’a pris un peu plus de temps que prévu. Ce temps supplémentaire n’est pas réellement dû à la prise en main d’Astro mais plutôt au fait que c’était aussi la première fois que j’utilisais <em>Tailwind CSS.</em></p>
+<p>En utilisant Astro pour la création de mon portfolio, <strong>mon but était d’obtenir un site web fonctionnel</strong> rapidement en ayant besoin de peu de connaissances car c&rsquo;est une des promesses d’Astro. <strong>Le résultat obtenu correspond parfaitement à mes attentes</strong> même s’il m’a pris un peu plus de temps que prévu. Ce temps supplémentaire n’est pas réellement dû à la prise en main d’Astro mais plutôt au fait que c’était aussi la première fois que j’utilisais <em>Tailwind CSS.</em></p>
 <h2 id=points-dapprentissage>Points d&rsquo;apprentissage</h2>
-<p>Lors de mon utilisation d’<strong>Astro</strong> j’ai appris plusieurs choses sur ses capacités.</p>
+<p>Lors de mon utilisation d’Astro j’ai appris plusieurs choses sur ses capacités.</p>
 <ol>
-<li>Il est possible de générer des pages web grâce à des fichier <code>.md</code> ou <code>.mdx</code>. Cela rend la création de contenu très simplifiée comme cela peut l’être avec le <code>static site generator</code> <strong>Hugo</strong>.</li>
+<li>Il est possible de générer des pages web grâce à des fichier <code>.md</code> ou <code>.mdx</code>. Cela rend la création de contenu très simplifiée comme cela peut l’être avec le <em>static site generator : Hugo</em>.</li>
 <li>Il est possible de créer dynamiquement des pages en fonction des données fournies par une API. Imaginons qu’une liste de produits avec leurs caractéristiques est stockée sur un serveur distant et disponible à travers une API, il suffirait de créer un template pour une page d’article et de faire une requêtes à l’API pour que les pages soient générées à la volée sans avoir à les hardcoder.</li>
-<li>L’utilisation de l’<code>island architecture</code> est très utile pour générer des sites nécessitant peu de réactivité. De cette manière, la majorité du contenu est générée par le serveur (SSR) alors que la minorité de contenu nécessitant d’être réactive est côté client (CSR). Cela permet d’obtenir un site web très performant comme c’est le cas avec des générateurs de sites statiques mais en gardant un côté dynamique et réactifs par endroit. De plus le SSR favorise l’indexation dans les moteurs de recherches.</li>
+<li>L’utilisation de l’<em>island architecture</em> est très utile pour générer des sites nécessitant peu de réactivité. De cette manière, <strong>la majorité du contenu est générée par le serveur</strong> (SSR) alors que <strong>la minorité de contenu nécessitant d’être réactive est côté client</strong> (CSR). Cela permet d’obtenir un site web très performant comme c’est le cas avec des générateurs de sites statiques mais en gardant un côté dynamique et réactif par endroit. De plus le SSR favorise l’indexation dans les moteurs de recherches.</li>
 </ol>
 <h2 id=idéesexemples-dapplication-de-la-méthode>Idées/exemples d&rsquo;application de la méthode</h2>
 <p>Après avoir utilisé <strong>Astro</strong> du début à la fin d’un projet, je dirais qu’il peut être intéressant de l’utiliser dans 2 cas de figures :</p>
 <ol>
-<li>Sites ayant des données d’une API à afficher. <strong>Astro</strong> facilite vraiment la création dynamique de pages pour ce genre de contenu.</li>
-<li>Des sites de taille petite à moyenne ne nécessitant pas une logique trop grande. Le framework permet vraiment d’avoir un résultat très rapidement pour ce genre de projets. Notamment grâce aux <code>composants astro</code> qui peuvent se substituer à ceux de Vue ou de React pour des opérations de bases.</li>
+<li>Sites ayant des données d’une API à afficher. Astro facilite vraiment la création dynamique de pages pour ce genre de contenu.</li>
+<li>Des sites de taille petite à moyenne ne nécessitant pas une logique trop grande. Le framework permet vraiment d’avoir un résultat très rapidement pour ce genre de projets. Notamment grâce aux <strong>composants Astro</strong> qui peuvent se substituer à ceux de Vue ou de React pour des opérations de bases.</li>
 </ol>
+<p>Je reviendrai donc très probablement vers Atro lors d&rsquo;un prochain projet. D&rsquo;autant plus qu&rsquo;ils viennent de sortir la version 2.0 du framework en ajoutant notamment une IA nous assistant dans la création de notre site. Mais celà sera peut-être le sujet d&rsquo;un prochain article&mldr;</p>
 <hr>
 <h3 id=sources>Sources</h3>
 <ul>

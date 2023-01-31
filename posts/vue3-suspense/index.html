@@ -3,7 +3,7 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="ie=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=author content>
+<meta name=author content="Simon Meia ">
 <meta name=description content="Découverte du composant Vue 3 : <Suspense>">
 <meta name=keywords content>
 <meta name=robots content="noodp">
@@ -24,7 +24,7 @@ Vue 3 &lt;Suspense> :: La veille de Simon — A simple theme for Hugo
 <meta itemprop=name content="Vue 3 <Suspense>">
 <meta itemprop=description content="Découverte du composant Vue 3 : <Suspense>"><meta itemprop=datePublished content="2023-01-26T00:00:00+00:00">
 <meta itemprop=dateModified content="2023-01-26T00:00:00+00:00">
-<meta itemprop=wordCount content="294"><meta itemprop=image content="http://simonmeia.github.io/LabVeilTech">
+<meta itemprop=wordCount content="296"><meta itemprop=image content="http://simonmeia.github.io/LabVeilTech">
 <meta itemprop=keywords content>
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="http://simonmeia.github.io/LabVeilTech">
@@ -72,15 +72,15 @@ Vue 3 &lt;Suspense> :: La veille de Simon — A simple theme for Hugo
 <h2 class=post-title><a href=http://simonmeia.github.io/LabVeilTech/posts/vue3-suspense/>Vue 3 </a></h2>
 <div class=post-content>
 <h2 id=introduction>Introduction</h2>
-<p>Lors du chargement de données dans un composant, il est souvent nécessaire d’afficher un <strong>loader</strong> afin de montrer à l’utilisateur que le système n’est pas bloqué et qu’il se passe bien quelque chose. Une manière classique d’ajouter un <strong>loader</strong> est de passer directement par le composant en lui ajoutant du code indiquant que tant qu’il n’a pas reçu de données, il doit afficher un <strong>loader</strong>.</p>
-<p>Le problème est que si plusieurs composant doivent recevoir des données, on peut vite se retrouver avec une interface plus du tout conviviale car remplie de <em>loaders.</em> Pour palier ce problème, il est possible d’utiliser le <em>built-in component</em> Vue : <code>&lt;Suspense></code> .</p>
+<p>Lors du chargement de données dans un composant, il est souvent nécessaire d’afficher un <strong>loader</strong> afin de montrer à l’utilisateur que le système n’est pas bloqué et qu’il se passe bien quelque chose. Une manière classique d’ajouter un loader est de passer directement par le composant en lui ajoutant du code indiquant que tant qu’il n’a pas reçu de données, il doit afficher un loader.</p>
+<p>Le problème est que si plusieurs composant doivent recevoir des données, on peut vite se retrouver avec une interface plus du tout conviviale car remplie de loaders. Pour palier ce problème, il est possible d’utiliser le <em>built-in component</em> Vue : <code>&lt;Suspense></code> .</p>
 <blockquote>
 <p>⚠️ <code>&lt;Suspense></code> est encore une <strong>experimental feature</strong>, il ne faut pas encore prendre pour acquis l’état actuel du composant car il pourra encore être modifié avant sa sortie officielle.</p>
 </blockquote>
-<h2 id=le-fonctionnement-de-suspense>Le fonctionnement de </h2>
-<p>Le principe est simple, il suffit de réunir tous les composants nécessitants un fetch de donnés entre deux balises <code>&lt;Suspense></code>. Lors du rendu initial de la page, <code>&lt;Suspense></code> va afficher le contenu par défaut du slot de chaque dépendance. Durant ce processus, <code>&lt;Suspense></code> va détecter si certaines de ses dépendances sont asynchrones. Si c’est le cas, elles entrent dans un <strong>pending state</strong>. Tant que les dépendances n’ont pas été résolues, le <strong>fallback content</strong> sera affiché. Une fois les données disponibles dans chacune des dépendances asynchrones, <code>&lt;Suspense></code> passe à l’état <strong>resolved</strong> et le contenu final est affiché.</p>
+<h2 id=le-fonctionnement-de-suspense>Le fonctionnement de Suspense</h2>
+<p>Le principe est simple, il suffit de réunir tous les composants nécessitants un fetch de donnés entre deux balises <code>&lt;Suspense></code>. Lors du rendu initial de la page, le composant va afficher le contenu par défaut du slot de chaque dépendance. Durant ce processus, <code>&lt;Suspense></code> va détecter si certaines de ses dépendances sont asynchrones. Si c’est le cas, elles entrent dans un <strong>pending state</strong>. Tant que les dépendances n’ont pas été résolues, le <strong>fallback content</strong> sera affiché. Une fois les données disponibles dans chacune des dépendances asynchrones, <code>&lt;Suspense></code> passe à l’état <strong>resolved</strong> et le contenu final est affiché.</p>
 <h2 id=conclusion>Conclusion</h2>
-<p>Le composant <code>&lt;Suspense></code> est donc une potentielle futur bonne pratique que tout bon développeur Vue devra adopter. Il est donc bon de se maintenir au courant de l’avancement du développement de ce composant afin d’être informé quand il sera officiellement introduit au framework.</p>
+<p>Le composant <code>&lt;Suspense></code> est donc <strong>une potentielle future bonne pratique</strong> que tout bon développeur Vue devra adopter. Il est donc bon de se maintenir au courant de l’avancement du développement de ce composant afin d’être informé quand il sera officiellement introduit au framework.</p>
 <hr>
 <h3 id=sources>Sources</h3>
 <ul>
