@@ -1,10 +1,10 @@
 +++
 categories = ["Front-end"]
-date = "2023-01-16"
-description = "Analyse de l'utilisation des frameworks javascripts en 2022"
+date = "2023-01-30"
+description = "Test du framework javascript Astro pour la création de mon portfolio"
 linktitle = ""
-title = "The State of JS | Front-end framework"
-slug = "state-of-js-frontend-framework"
+title = "Test du framework Astro"
+slug = "test-du-framework-astro"
 type = "post"
 +++
 
