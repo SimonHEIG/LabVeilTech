@@ -1,12 +1,13 @@
 +++
 title = "About"
-date = "2014-04-09"
-aliases = ["about-us","about-hugo","contact"]
+date = "2023-01-31"
 [ author ]
-  name = "Hugo Authors"
+  name = "Simon Meia"
 +++
 
-About page
+## Ikigai
+
+![Front-end framework : Intérêt](/static/Iikigai_simon_meia.png)
 
 Hugo is the **world’s fastest framework for building websites**. It is written in Go.
 
