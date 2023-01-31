@@ -4,6 +4,9 @@ languageCode = "fr-CH"
 theme        = "hello-friend-ng"
 paginate     = 10
 
+[author]
+  name = "Simon Meia"
+
 [params]
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"

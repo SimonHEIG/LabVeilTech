@@ -14,20 +14,20 @@ Avec l'évolution rapide des technologies, il est important de suivre l'actualit
 
 ## Système d’écoute
 
-Passionné de développement web, j’ai depuis toujours fait un peu de veille sans vraiment le savoir. Avant de commencer le laboratoire, je suivais déjà une poignée de personnes intéressantes sur twitter ainsi que quelques steamers partageant leur sessions de coding. Je voyais donc déjà passer beaucoup d’infos mais sans les classer ou si c’était le cas, je le faisait dans un dossier favoris Chrome un peu fourre-tout.
+Passionné de développement web, **j’ai depuis toujours fait un peu de veille sans vraiment le savoir**. Avant de commencer le laboratoire, je suivais déjà une poignée de personnes intéressantes sur Twitter ainsi que quelques steamers partageant leurs sessions de coding. Je voyais donc déjà passer beaucoup d’infos mais sans les classer ou si c’était le cas, je le faisait dans un dossier favoris Chrome un peu fourre-tout.
 
-Actuellement, mon système d’écoute contient les sources suivantes : 
+Heureusement, **cela a bien changé** et mon système d'écoute contient actuellement les sources suivantes : 
 
 ### Twitter
 
-Twitter est incontestablement le réseau social ou je passe le plus de temps. Les informations importantes pour ma veille se perdant au milieu des autres tweets j’ai décidé de créer 2 liste propres à ma veille : 
+Twitter est incontestablement le réseau social où je passe le plus de temps. Les informations importantes pour ma veille se perdant au milieu des autres tweets j’ai décidé de créer 2 liste Twitter propres à ma veille : 
 
 - [Veille - Personnes](https://twitter.com/i/lists/1620359973552197632)
 - [Veille - Technos](https://twitter.com/i/lists/1620361853091151872?s=20)
 
 ### Newsletter
 
-Les newsletters étaient un média que je n’utilisait pas du tout il y a de ça 6 mois. Ce cours était donc l’occasion parfait pour tester et de voir si c’est une manière de collecter des informations qui me convient ou non. Pour ce faire, je me suis abonné aux newletters suivantes :
+Les newsletters étaient un média que je n’utilisait pas du tout il y a de cela 6 mois. Ce cours était donc l’occasion parfait pour tester et de voir si c’est une manière de collecter des informations qui me convient ou non. Pour ce faire, je me suis abonné aux newletters suivantes :
 
 - [TLDR](https://tldr.tech/)
 - [Alex so yes](https://alexsoyes.com/)
@@ -36,7 +36,7 @@ Les newsletters étaient un média que je n’utilisait pas du tout il y a de ç
 
 ### Blogs spécialisés
 
-Durant mes recherches, j’ai aussi pu mettre de côtés les URL de blogs spécialisés dans mon domaine : 
+Durant mes recherches, j’ai aussi pu mettre de côté des URL de blogs spécialisés dans mon domaine : 
 
 - [Graphikart](https://grafikart.fr/)
 - [Dev.to](https://dev.to/)
@@ -46,7 +46,7 @@ Durant mes recherches, j’ai aussi pu mettre de côtés les URL de blogs spéci
 
 ### Lives Twitch
 
-Certaines personnes présentes dans la liste twitter de veille sont aussi active sur Twitch. Je ne compte pas réellement ça comme une source de veille car je ne vais pas me diriger vers ce médias uniquement pour faire ma veille mais plus pour du divertissement tout en étant attentifs à des technologies que je ne connaitrais pas.
+Certaines personnes présentes dans ma liste Twitter de veille sont aussi actives sur Twitch. Je ne compte pas réellement ça comme une source de veille car je ne vais pas me diriger vers ce média uniquement pour faire ma veille mais plus pour du divertissement tout en étant attentifs à des technologies que je ne connaitrais pas.
 
 ### Conférences
 
@@ -54,6 +54,8 @@ Ce [repository Github](https://github.com/scraly/developers-conferences-agenda) 
 
 ## Workflow de classement.
 
-Mon workflow pour classer les informations trouvées durant ma veille est très simple. Je possède une base de données Notion dans laquelle je peux classer des liens avec les tags présent dans la fiche de domaine. Avec l’extension Chrome [Save to Notion](https://chrome.google.com/webstore/detail/save-to-notion/ldmmifpegigmeammaeckplhnjbbpccmm) je peux enregistrer les page web en les classant directement dans la base de données.
+Mon workflow pour classer les informations trouvées durant ma veille est très simple. Je possède **une base de données Notion** dans laquelle je peux classer des liens avec les tags présent dans la [fiche de domaine](https://simonmeia.github.io/LabVeilTech/about/). Avec l’extension Chrome [Save to Notion](https://chrome.google.com/webstore/detail/save-to-notion/ldmmifpegigmeammaeckplhnjbbpccmm) je peux enregistrer les page web en les classant directement dans la base de données.
 
 La seule source où le workflow change un peu est Twitter. En général, je consulte Twitter sur mon smartphone ce qui rend l’ajout à Notion des informations beaucoup moins aisé. Je sauvegarde donc dans un premier temps les tweets sur Twitter et je viens régulièrement depuis un PC sauvegarder les tweets enregistrés sur Notion.
+
+![Base de donnée Notion](./base_de_donnees_notion.png)

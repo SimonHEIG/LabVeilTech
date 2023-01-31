@@ -7,11 +7,11 @@ date = "2023-01-31"
 
 ## Contexte
 
-Ce site est le fruit d'un cours du 5ème semestre de bachelor d'ingéniérie des médias nommé Laboratoire de veille technologique. Le but de ce cours était de mettre en place un système d'écoute de veille technologique basé sur un domaine dans lequel nous voulons nous investir professionnellement.
+Ce site est le fruit d'un cours du 5ème semestre de Bachelor en ingéniérie des médias nommé Laboratoire de veille technologique. Le but de ce cours était de mettre en place un système d'écoute de veille technologique basé sur un domaine dans lequel nous voulons nous investir professionnellement.
 
 ## Ikigai
 
-Après avoir obtenu un CFC d'informaticien avec une spécialisation pour le développement d'applications, j'ai décidé de me réorienté légèrement en quittant l'informatique "bas niveau" pour me spécialisé dans le développement web. Cette passion pour le développement web se retrouve dans mon ikigai et traduit bien mon envie d'en faire mon métier.
+Après avoir obtenu un CFC d'informaticien avec une spécialisation pour le développement d'applications, j'ai décidé de me réorienter légèrement en quittant l'informatique "bas niveau" pour me spécialiser dans le développement web. Cette passion pour le développement web se retrouve dans mon ikigai et traduit bien mon envie d'en faire smon métier.
 
 ![Ikigai Simon Meia](./Iikigai_simon_meia.png)
 

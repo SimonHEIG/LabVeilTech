@@ -10,9 +10,9 @@ type = "post"
 
 ## Introduction
 
-La fonction JavaScript `fetch` est une fonction très puissante et utile qui permet aux développeurs d'effectuer des requêtes HTTP en toute simplicité. Il est devenu l'un des éléments les plus populaires de l'API JavaScript, et est largement utilisé pour les applications web. Seulement, `fetch` comprend aussi quelques points négatifs. 
+La fonction JavaScript `fetch` est une fonction très puissante et utile qui **permet aux développeurs d'effectuer des requêtes HTTP en toute simplicité**. Elle est devenue l'un des éléments les plus populaires de Javascript, et est largement utilisée pour la conception d'application web. Seulement, `fetch` comprend aussi quelques points négatifs. 
 
-La librairie `wretch` a été conçue comme une amélioration construite autour de la fonction `fetch` de base ayant pour but de simplifier la manière d’effectuer des requêtes et de gérer les réponses.
+La librairie `wretch` a été conçue comme une amélioration construite autour de la fonction `fetch` de base et a pour but de simplifier la manière d’effectuer des requêtes et de gérer les réponses.
 
 ## Différences entre wretch et fetch
 
@@ -20,7 +20,7 @@ Sur son repository Github, il est décrit que `wretch` a été créé pour répo
 
 ### 1 - Les deux callbacks
 
-La première amélioration que propose `wretch` est de simplifier la requête de base en s’affranchissant du second callback.
+La première amélioration que propose wretch est de **simplifier la requête de base** en s’affranchissant du second callback.
 
 ```jsx
 // 🚩 Avec fetch
@@ -123,7 +123,7 @@ externalApi
 | ✔️ Open-source & maintenu 	|                            	|
 | ✔️ Fortement typé         	|                            	|
 
-En conclusion, `wretch` est une librairie JavaScript très utile qui permet aux développeurs d'effectuer des requêtes HTTP en toute simplicité et plus rapidement qu'avec la fonction `fetch` de base. Son installation ne représentant pas un poids conséquent elle est donc parfaite pour compléter la fonction originale de `fetch` et peut être intéressant à intégré dans des futurs projets javascript.
+En conclusion, `wretch` est **une librairie JavaScript très utile** qui permet aux développeurs d'effectuer des requêtes HTTP en toute **simplicité** et plus **rapidement** qu'avec la fonction `fetch` de base. Son installation ne représentant pas un poids conséquent elle est donc parfaite pour compléter la fonction originale de `fetch` et peut être intéressante à intégrer dans des futurs projets Javascript.
 
 ---
 
