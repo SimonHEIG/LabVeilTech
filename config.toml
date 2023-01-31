@@ -23,7 +23,7 @@ paginate     = 10
   enableSharingButtons = true
 
   # Metadata mostly used in document's head
-  description = "My new homepage or blog"
+  description = "Home page du site de la veille technologique de Simon Meia"
   keywords = "homepage, blog"
   images = [""]
 
