@@ -4,8 +4,8 @@
         {{ range .Site.Menus.main -}}
             <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
             {{- end }} -->
-        <li><a href="/LabVeilTech/posts">Posts</a></li>
-        <li><a href="/LabVeilTech/about">About me</a></li>
+        <li><a href="/LabVeilTech/posts">Articles</a></li>
+        <li><a href="/LabVeilTech/about">A propos</a></li>
 
         {{- if .Site.Params.EnableGlobalLanguageMenu }}
         <div class="submenu">
